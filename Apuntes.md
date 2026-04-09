@@ -121,19 +121,27 @@ El backend:
  + Gestiona miles de solicitudes distintas de forma simultánea.  
  + Combina técnicas de concurrencia y paralelismo, como la distribución de solicitudes en muchos servidores, el almacenamiento en caché y la duplicación de datos.
 
-interfaz principal
-perfil
-facturación
-interfaz de servicio de envío
-
 el front end y el back end de la aplicación deben diseñarse de forma coherente para obtener los mejores resultados.
 
-Objetivos de desarrollo
-El desarrollo de full stack tiene como objetivo crear aplicaciones con buena capacidad de respuesta, eficientes y funcionales
+### Diferencias entre back end y front end 
 
-Los desarrolladores de front end tienen como objetivo desarrollar una experiencia de usuario positiva, optimizar la aplicación en cuanto a accesibilidad y rendimiento, y crear diseños con capacidad de respuesta. Sus principales metas de desarrollo son garantizar que sea fácil de interactuar con el front end, que esté bien diseñado y que mantenga su capacidad de respuesta en diferentes plataformas y dispositivos.
+__Objetivos de desarrollo:__
 
-Los desarrolladores de back end crean y, posteriormente, mantienen las operaciones del lado del servidor de una aplicación. Sus principales objetivos de desarrollo son crear una arquitectura fiable que realice las funciones de la aplicación de forma precisa y eficiente. Su meta es cumplir con los requisitos de los usuarios y, al mismo tiempo, cumplir con todas las consideraciones de seguridad y costos.
+```full stack```: crear aplicaciones con buena capacidad de respuesta, eficientes y funcionales
+
+```Front end```: desarrollar interfaces de usuario(GUI) con una interacción sencilla para el usuario, optimizar la aplicación en cuanto a accesibilidad y rendimiento, y crear diseños con capacidad de respuesta en diferentes plataformas y dispositivos.
+
+```Back end```: crear y mantener las operaciones del lado del servidor de una aplicación con una arquitectura fiable y eficiente, cumpliendo con los requisitos de los usuarios, seguridad y costos.
+
+__Tecnologías:__  
+
+```Front end```: Marcos de trabajo(Frameworks)
+```Back end```:
+
+
+
+
+
 
 
 
