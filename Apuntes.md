@@ -135,21 +135,115 @@ __Objetivos de desarrollo:__
 
 __Tecnologías:__  
 
-```Front end```: Marcos de trabajo(Frameworks)
-```Back end```:
+```Front end```: HTML, CSS, JavaScript, TypeScript y Marcos de trabajo (Frameworks).
+```Back end```: Java, Python, Ruby, PHP y tecnologías de almacenamiento y de API.
 
+__Simultaniedad:__
 
+O ```concurrencia```: capacidad de una aplicación para ejecutar varias tareas de manera simultánea.
 
+```Front end```: cada usuario tiene su propia copia de la aplicación en el navegador así que no hay problemas de concurrencia.  
+```Back end```: es usual que se gestionen muchas peticiones de forma simultánea, por ello se usan diversas _estratégias_:
++ Subprocesos múltiples (gestión del procesamiento de tareas, CPU).
++ Programación asíncrona (devolución de llamadas y promesas).
++ Programación basada en eventos (escuchas de eventos y ejecuciónes de controladores de eventos de forma simultánea).
++ Bloqueo y sincronización (acceso sin inconsistencias al mismo recurso para varios usuarios de forma simultánea).
 
+__Almacenamiento en Caché:__
 
+Mejora el rendimiento y el tiempo de carga de una aplicación.
 
+```Front end```: Los navegadores o las aplicaciones cliente almacenan en caché los archivos de la aplicación y los utilizan para mejorar el rendimiento.  
+```Back end```: almacenamiento en caché en diferentes servidores o en una CDN (red de entrega de contenido) de diferentes contenidos para reducir la carga en el servidor.
 
+__Seguridad:__  
 
+```Front end```: validación de entradas en formularios, scripts en la parte del cliente y autentificación de usuario.  
+```Back end```: protección de bases de datos, servicios de back end y la aplicación. (Mediante el uso de cifrado, sistemas de autenticación seguros y prácticas de codificación segura).
 
+## <font color="orange"> Generalidades del protocolo HTTP</font>
 
+Hypertext Transfer Protocol: protocolo que permite hacer peticiones de datos y recursos.
 
+Es la base de cualquier intercambio de datos en la Web, y un protocolo de estructura cliente-servidor.
 
+Clientes y servidores se comunican intercambiando mensajes individuales (no flujos continuos de datos).
 
+Tipos de mensaje:
 
++ ```Peticiones```  mensajes que envía el cliente, normalmente un navegador Web.
++ ```Respuestas``` mensajes enviados por el servidor.
 
+Se conoce como un protocolo de la capa de aplicación, y se transmite sobre el protocolo ```TCP/IP```, o el protocolo encriptado ```TLS```, teóricamente podría usarse cualquier otro protocolo fiable. Es un protocolo __ampliable__.
 
+Se usa para:
++ Transmitir documentos de hipertexto (HTML).
++ Transmitir imágenes o vídeos.
++ Enviar datos o contenido a los servidores, como en el caso de los formularios de datos.
++ Transmitir partes de documentos, y actualizar páginas Web en el acto.
+
+![alt text](image-1.png)
+
+### Arquitectura de los sistemas basados en HTTP
+
+Arquitectura en capas de la Web basado en el principio de cliente-servidor.
+
++ El cliente envía una petición mediante el ```agente del usuario```(normalmente un navegador web, también puede ser otro programa que explore la web).
+
++ Cada petición individual se envía a un ```proxy```(a demás de otros agentes intermedios como routers, modems o ISP).
+
++ Los proxies envian las peticiones a los ```servidores``` correspondientes para que estos las gestionen y respondan.
+
+__Proceso para mostrar una página Web__:   
+El navegador envía una petición de documento HTML al servidor, procesa este documento y envía más peticiones para solicitar scripts, hojas de estilo (CSS), y otros datos que necesite (vídeos, imágenes...). El navegador, une todos estos documentos y datos, y compone la página Web.
+
+__Proxies__:  
+Existen distintos dispositivos que gestionan los mensajes HTTP.La mayoria solamente gestionan estos mensajes en los niveles de protocolo inferiores: capa de transporte, capa de red o capa física.  
+Los proxies, en canvío, son dispositivos que operan procesando la capa de aplicación.
+
+### HTTP y conexiones
+
+HTTP _no necesita_ que el protocolo que lo sustenta mantenga una _conexión continua_ entre los participantes en la comunicación, solamente necesita que sea un protocolo fiable o que no pierda mensajes, un protocolo que sea capaz de detectar que se ha pedido un mensaje y reporte un error.
+
+De los dos protocolos más comunes en Internet, TCP es fiable, UDP no lo es. Por lo tanto HTTP, se apoya en el uso del protocolo TCP.
+
+### ¿Qué se puede controlar con HTTP?
+
+Elementos que se pueden controlar con el protocolo HTTP:
+
++ ```Cache```: El como se almacenan los documentos en la caché. El servidor puede indicar a los proxies y clientes que almacenar y durante cuanto tiempo.
+
++ ```Flexibilidad del requisito de origen``` entre cliente y servidor: Para dar facilidades al servidor, ya que los navegadores Web sólo permiten compartir datos a páginas del mismo origen para proteger la privacidad de los usuarios. 
++ ```Autentificación```: HTTP provee de servicios básicos de autentificación. Para dar acceso sólo a usuarios autorizados.
++ ```Proxies y tunneling```: Servidores y/o clientes pueden usar intranets para esconder su dirección IP. Las peticiones HTTP utilizan los proxies para acceder a ellos.
+
+### Flujo de HTTP
+
+__Pasos:__
+
+1. Abre una conexión TCP.
+2. Hacer una petición HTTP.
+3. Leer la respuesta enviada por el servidor.
+4. Cierre o reuso de la conexión para futuras peticiones.
+
+### Mensajes HTTP
+
+__Peticiones__:
+
+  <img src="http-request.svg" alt="peticiones HTTP" style="width: 50%; height: auto; display:block; margin: 15px auto;">
+
++ Un ```método HTTP```, normalmente un verbo, como: GET, POST o un nombre como: OPTIONS o HEAD, que defina la operación que el cliente quiera realizar. El cliente suele hacer una petición de recursos, usando GET, o presentar un valor de un formulario HTML, usando POST. También se pueden hacer otros tipos de peticiones.
++ La ```versión``` del protocolo HTTP.
++ La ```dirección del recurso pedido```; la URL del recurso, sin los elementos obvios por el contexto, como pueden ser: sin el protocolo (http://), el dominio (aquí developer.mozilla.org), o el puerto TCP (aquí el 80).
++ ```Cabeceras HTTP``` opcionales, que pueden aportar información adicional a los servidores.
++ O un ```cuerpo de mensaje```, en algún método, como puede ser POST, en el cual envía la información para el servidor.
+
+__Respuestas:__
+
+<img src="http-response.svg" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
+
++ La ```versión``` del protocolo HTTP que están usando.
++ Un ```código de estado```, indicando si la petición ha sido exitosa, o no, y debido a que.
++ Un ```mensaje de estado```, una breve descripción del código de estado.
++ ```Cabeceras HTTP```, como las de las peticiones.
++ Opcionalmente, el ```recurso que se ha pedido```.
