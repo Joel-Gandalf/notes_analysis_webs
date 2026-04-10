@@ -1,7 +1,7 @@
 # <span style="color:orange"><center> Spring 0 </span>
 ## <font color="orange">Funcionamiento de una web</font> <br>
 
-![alt text](image.png) <br>
+<img src="image.png" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
 
 ### Clientes <br>
 Dispositivos de los usuarios conectados a internet con el software necesario para ello(navegador).<br>
@@ -247,3 +247,44 @@ __Respuestas:__
 + Un ```mensaje de estado```, una breve descripción del código de estado.
 + ```Cabeceras HTTP```, como las de las peticiones.
 + Opcionalmente, el ```recurso que se ha pedido```.
+
+## <font color="orange"> Renderización en la Web</font>
+
+La renderización web es el proceso técnico mediante el cual el navegador interpreta y traduce el código de una página(HTML, CSS y JavaScript) en la representación visual e interactiva que el usuario ve en pantalla. 
+
+[arimetrics.com](https://www.arimetrics.com/glosario-digital/renderizado-web#:~:text=Definici%C3%B3n:,cliente%20como%20el%20c%C3%B3digo%20JavaScript.)
+
+### Fases clave del proceso de renderizado:
+
++ ```Análisis HTML```: Obtención y conversión del código HTML en el DOM (estructura).
++ ```Análisis CSS```: CSSOM (estilos).
++ Creación del ```Render Tree```: Unión de DOM y CSSOM para determinar qué se muestra.
++ ```Diseño``` (Layout): Cálculo de la posición y tamaño de cada elemento.
++ ```Pintura``` (Painting): Relleno de píxeles, colores, imágenes y textos en pantalla. 
+
+[publisuites.com](https://www.publisuites.com/blog/que-es-el-renderizado-de-paginas-web/)
+
+Tipos principales de renderización:
+
+Renderizado del lado del servidor (SSR): El servidor genera el HTML completo y lo envía al navegador.
+Renderizado del lado del cliente (CSR): El navegador descarga un HTML mínimo y usa JavaScript para construir el contenido.
+
+Renderización del servidor (SSR)
+Renderizar una app en el servidor para enviar HTML, en lugar de JavaScript, al cliente.
+Renderización del cliente (CSR)
+Renderizar una app en un navegador con JavaScript para modificar el DOM.
+Renderización previa
+Ejecutar una aplicación del cliente en el momento de la compilación para capturar su estado inicial como HTML estático. Ten en cuenta que la "renderización previa" en este sentido es diferente de la renderización previa del navegador de navegaciones futuras.
+Hidratación
+Ejecutar secuencias de comandos del cliente para agregar estado de la aplicación e interactividad al HTML renderizado por el servidor. La hidratación supone que el DOM no cambia.
+Rehidratación
+Si bien a menudo se usa para significar lo mismo que la hidratación, la rehidratación implica actualizar el DOM con regularidad con el estado más reciente, incluso después de la hidratación inicial
+Rendimiento
+Time to First Byte (TTFB)
+Es el tiempo que transcurre entre hacer clic en un vínculo y la carga del primer byte de contenido en la página nueva.
+First Contentful Paint (FCP)
+Es el momento en que el contenido solicitado (cuerpo del artículo, etcétera) se vuelve visible.
+Interaction to Next Paint (INP)
+Es una métrica representativa que evalúa si una página responde de forma coherente y rápida a las entradas del usuario.
+Total Blocking Time (TBT)
+Es una métrica proxy para INP que calcula cuánto tiempo se bloqueó el subproceso principal durante la carga de la página.
