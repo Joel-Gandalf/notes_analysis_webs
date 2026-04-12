@@ -439,3 +439,140 @@ _No todas las PWA son SPA._
 
 Es una estrategia de diseño web que se enfoca en proporcionar una experiencia funcional básica a todos los usuarios (independientemente del navegador o dispositivo). Si el dispositivo y el navegador lo permiten añade capas de funcionalidades más avanzadas (como notificaciones push o funcionamiento offline) usando la detección de características para las API avanzadas.
 
+Webgrafía: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app#traditional_websites)
+
+## <font color="orange">Tipologías de página web (Conclusiones)</font>
+
+Las páginas estáticas muestran contenido fijo, son rápidas y seguras, ideales para sitios informativos simples. Las dinámicas generan contenido en tiempo real mediante bases de datos, permitiendo interacción (ej. redes sociales, e-commerce). Las PWA (Progressive Web Apps) combinan lo mejor de la web y aplicaciones nativas: funcionan sin conexión, cargan al instante y se instalan en el móvil.
+
+Las SPA cargan una única página HTML inicial y actualiza dinámicamente el contenido mediante JavaScript, sin recargar el navegador. Ofrece una experiencia de usuario fluida y rápida, similar a una aplicación de escritorio.
+
+### Diferencias clave:
+__Páginas Web Estáticas:__
+
++ Funcionamiento: Archivos HTML/CSS y JS predefinidos servidos tal cual al navegador.
++ Contenido: Fijo. El mismo para todos los usuarios.
++ Actualización: Manual(desarrollador), editando el código de cada página.
++ Ventajas: Carga muy rápida, coste de desarrollo bajo, alta seguridad.
++ Uso: Portafolios, páginas de aterrizaje (landing pages), sitios corporativos informativos.
+
+__Páginas Web Dinámicas:__
+
++ Funcionamiento: El contenido se genera en el servidor en tiempo real utilizando lenguajes como PHP, Python o Node.js y consultas a bases de datos para generar contenido al momento.
++ Contenido: Personalizado e interactivo. Cambia según el usuario (cookies, comportamiento).
++ Actualización: Automática a través de un gestor de contenidos (CMS) como WordPress.
++ Ventajas: Funcionalidades complejas (registros, carritos de compra, búsquedas).
++ Uso: Tiendas online (Amazon), redes sociales, blogs, sitios con alta interacción.
+
+__PWA (Progressive Web Apps):__
+
++ Funcionamiento: Sitios web modernos que usan Service Workers para funcionar como apps.
++ Contenido: Dinámico, rápido y con capacidad de caché (funciona sin conexión o con baja conectividad).
++ Características: Instalables en el escritorio/móvil, envían notificaciones push y acceden a hardware (cámara, geolocalización).
++ Ventajas: Experiencia nativa, no requieren descarga desde la tienda de apps, menor costo de desarrollo que una app nativa.
++ Uso: Aplicaciones que requieren alta experiencia de usuario (ej. Twitter Lite, Pinterest).  
+
+__Páginas web SPA__ (Single-Page Application o Aplicación de Una Sola Página):
+
++ Funcionamiento: Carga una única página HTML al inicio. Cuando el usuario interactúa, JavaScript actualiza solo la parte necesaria de la pantalla (DOM) utilizando tecnologías como AJAX; sin recargar todo el navegador.
++ Contenido: El contenido no viaja "pre-armado" desde el servidor. Lo que viaja son datos puros (normalmente en formato JSON) a través de APIs. La SPA toma esos datos y los "dibuja" en el navegador del usuario en tiempo real.
++ Actualización: reactiva; si cambias un dato, solo se actualiza ese componente o sección específica de la interfaz de forma invisible para el usuario.
++ Tecnologías comunes: Se suelen desarrollar con frameworks y librerías de JavaScript como React, Angular, Vue.js o EmberJS.
++ Ventajas: Navegación extremadamente rápida, excelente experiencia de usuario y menor consumo de ancho de banda tras la carga inicial. Reutilización: Al separar los datos del diseño, puedes usar la misma API para una web y una App móvil.
++ Desventajas: El SEO (posicionamiento en buscadores) es más complejo de optimizar, el tiempo de carga inicial puede ser mayor y depende del rendimiento del navegador del cliente. 
++ Uso: aplicaciones interactivas donde la velocidad y la experiencia de usuario son primordiales (Gmail, Facebook, Twitter, Netflix o Spotify).
+
+__Resumen comparativo__
+
+| Característica | Estática |	Dinámica	| SPA | PWA |  
+| :--- | :---: | :---: | :---: | :---: | 
+| Contenido | Fijo | Variable/Personalizado | Reactivo (JSON/APIs) | Dinámico/Interactivo |
+| Interactividad |	Muy baja	| Alta | Muy alta |	Muy alta |
+| Velocidad |	Muy rápida |	Media (depende del servidor)	| Inicial lenta Después Muy alta | Muy rápida (offline)
+| Actualización |	Manual (código) |	CMS/Base de datos | Se actualiza por secciones	| Automática/En tiempo real Segundo Plano|
+| Instalable |	No |	No | No |	Sí (añadir a pantalla inicio) |
+| Uso Offline |	No |	No	| Limitado | Sí |
+<br><br>
+Webgrafía:
+
+[mytaskpanel.com](https://www.mytaskpanel.com/paginas-web-estaticas-y-dinamicas/#:~:text=%C2%BFQu%C3%A9%20es%20una%20p%C3%A1gina%20web%20din%C3%A1mica?,de%20tr%C3%A1fico%20y%20datos%20din%C3%A1micos.)
+
+[openWebinars.net](https://openwebinars.net/blog/paginas-web-estaticas-vs-paginas-web-dinamicas/)
+
+[incentro.com](https://www.incentro.com/es-ES/blog/que-es-web-simple-page-applications)
+
+[omatech.com](https://www.omatech.com/blog/2022/08/31/que-es-una-web-spa/)
+
+[arsys.es](https://www.arsys.es/blog/spa-unica-pagina)
+
+
+## <font color="orange"><center>Análisis de aplicaciones</font>
+
+### Amazon :
+
+| Criterio | Descripción |
+|:---|:---|
+| Tipología||
+| URL ||
+| Evidencias técnicas||
+| Comportamiento de navegación ||
+| Tiempo de carga ||
+| Interacción con el servidor ||
+
+### Blog personal de WordPress :
+
+| Criterio | Descripción |
+|:---|:---|
+| Tipología| Estática |
+| URL ||
+| Evidencias técnicas||
+| Comportamiento de navegación ||
+| Tiempo de carga ||
+| Interacción con el servidor ||
+
+### Portafolio estático :
+
+| Criterio | Descripción |
+|:---|:---|
+| Tipología|  Estática  |
+| URL ||
+| Evidencias técnicas||
+| Comportamiento de navegación ||
+| Tiempo de carga ||
+| Interacción con el servidor ||
+
+### Airbnb :
+
+| Criterio | Descripción |
+|:---|:---|
+| Tipología||
+| URL ||
+| Evidencias técnicas||
+| Comportamiento de navegación ||
+| Tiempo de carga ||
+| Interacción con el servidor ||
+
+### Twitter :
+
+| Criterio | Descripción |
+|:---|:---|
+| Tipología| SPA |
+| URL ||
+| Evidencias técnicas||
+| Comportamiento de navegación ||
+| Tiempo de carga ||
+| Interacción con el servidor ||
+
+### Página de documentación de MDN :
+
+| Criterio | Descripción |
+|:---|:---|
+| Tipología||
+| URL ||
+| Evidencias técnicas||
+| Comportamiento de navegación ||
+| Tiempo de carga ||
+| Interacción con el servidor ||
+
+
+
