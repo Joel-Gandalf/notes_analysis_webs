@@ -514,7 +514,7 @@ Webgrafía:
 |:---|:---|
 | Tipología| 	Dinàmica/híbrida (Multi-Page Application - MPA) con fragmentos de comportamiento SPA y PWA|
 | URL | https://www.amazon.es/ |
-| Evidencias técnicas | <ul><li>Manifiesto de Aplicación (manifest.json): Aunque Amazon tiene archivos de configuración, no siempre expone el banner de "Instalar en pantalla de inicio" que caracteriza a las PWA. Su estrategia de negocio es empujarte a la App Nativa.</li> <li>Service Workers: Amazon los usa masivamente para el almacenamiento en caché de recursos críticos y para que la página cargue rápido, pero no ofrece una experiencia offline completa (no puedes comprar sin internet).</li> <li> SSR (Server Side Rendering): El HTML inicial llega renderizado desde el servidor para optimizar SEO y LCP.</li> <li>Arquitectura de Micro-frontends: Diferentes secciones (carrito, buscador) son servicios independientes integrados en la interfaz.</li> <li>Imágenes de próxima generación: Uso de formatos .webp y lazy-loading nativo.</li></ul> |
+| Evidencias técnicas | <ul><li>No es una SPA pura porque cada sección principal (Home, Producto, Checkout) implica una carga de documento nuevo, aunque usa AJAX para actualizar estados internos como el filtrado de productos o el despliegue de reseñas.</li><li>Manifiesto de Aplicación (manifest.json): Aunque Amazon tiene archivos de configuración, no siempre expone el banner de "Instalar en pantalla de inicio" que caracteriza a las PWA. Su estrategia de negocio es empujarte a la App Nativa.</li> <li>Service Workers: Amazon los usa masivamente para el almacenamiento en caché de recursos críticos y para que la página cargue rápido, pero no ofrece una experiencia offline completa (no puedes comprar sin internet), Por ello no se considera una PWA.</li> <li> SSR (Server Side Rendering): El HTML inicial llega renderizado desde el servidor para optimizar SEO y LCP (no es un div vacío como en un React básico).</li> <li>Arquitectura de Micro-frontends: Diferentes secciones (carrito, buscador...) son servicios independientes integrados en la interfaz, si uno falla, el otro sigue funcionando.</li> <li>Imágenes de próxima generación: Uso de formatos .webp y lazy-loading nativo.</li></ul> |
 | Comportamiento de navegación | 	Navegación hibrida. El flujo principal es síncrono (recarga de página), pero las interacciones de filtrado, paginación de reseñas y el "Añadir a la cesta" son asíncronas (AJAX/Fetch), manteniendo el estado sin refrescar la ventana.|
 | Tiempo de carga |276 requests 13.9 MB transferred 19.6 MB resources Finish: 1.2 min DOMContentLoaded: 1.72 s Load: 3.10 s|
 | Interacción con el servidor | APIs y CDNs |
@@ -523,52 +523,60 @@ Webgrafía:
 
 | Criterio | Descripción |
 |:---|:---|
-| Tipología| Estática |
-| URL ||
-| Evidencias técnicas||
-| Comportamiento de navegación ||
-| Tiempo de carga ||
-| Interacción con el servidor ||
+| Tipología| 	Dinàmica / CMS (Content Management System) tradicional. |
+| URL | https://humanidadymedio.wordpress.com/ |
+| Evidencias técnicas| <ul><li>Estructura clásica donde el servidor (PHP) genera el HTML en cada solicitud.</li> <li>Contenido personalizado e interactivo. Cambia según el comportamiento del usuario</li> <li>Actualización automática a través de un gestor de contenidos (CMS), WordPress</li> <li>WordPress: Rutas /wp-content/ y generador WordPress.com.</li> <li>Jetpack: Plugins integrados para estadísticas/seguridad.</li> <li>Temas predefinidos: Clases CSS estándar (.site-header, .entry-content).</li></ul> |
+| Comportamiento de navegación | Navegació Síncrona (MPA, Multi-Page Application Clàssica). Recarga la página completa en cada navegación; sin transiciones suaves de JS. |
+| Tiempo de carga |36 requests 728 kB transferred 1.4 MB resources Finish: 1.58 s DOMContentLoaded: 1.05 s Load: 1.49 s|
+| Interacción con el servidor | 	PHP / MySQL via Servidor Remot. El servidor monta el HTML con PHP y lo envía; sin API moderna separada. |
 
 ### Portafolio estático :
 
 | Criterio | Descripción |
 |:---|:---|
-| Tipología|  Estática  |
-| URL ||
-| Evidencias técnicas||
-| Comportamiento de navegación ||
-| Tiempo de carga ||
-| Interacción con el servidor ||
+| Tipología|  Estática, Static Site Generator (SSG)/ SPA  |
+| URL | https://www.shcherban.com/ |
+| Evidencias técnicas| <ul><li>Al entrar en DevTools > Network y hacer clic en un enlace de su menú, no se descarga un archivo html, sino un pequeño archivo de datos (JSON) o un fragmento de JavaScript.</li> <li>Es Estática porque el contenido no cambia según quién lo mire (no hay login, ni nada personalizado). El contenido es el mismo para todos y está pre-calculado.<li>Es SPA en su comportamiento porque utiliza un "Router" de JavaScript para cambiar lo que se ve en pantalla sin que la pestaña del navegador haga amago de recarga.</li> <li>Tecnología moderna: Está construida con Next.js o Gatsby (se nota por el pre-fetching de enlaces).</li> <li>Imágenes optimizadas: Usa componentes de imagen avanzados que cargan versiones pequeñas primero (blur-up effect).</li> <li>Gestión de estado: Si inspeccionas el código, verás que el contenido está inyectado mediante JavaScript hidratado sobre un HTML base.</li></ul> |
+| Comportamiento de navegación | Navegació Instantània (Client-side routing). Al hacer clic en un proyecto, no hay petición de una nueva página HTML al servidor; JavaScript captura el clic y cambia el componente visual. Da una experiencia fluida. |
+| Tiempo de carga | 21 requests 1.4 MB transferred 1.6 MB resources Finish: 1.11 s DOMContentLoaded: 702 ms Load: 983 ms |
+| Interacción con el servidor | Mínima / Pre-renderizada. El servidor no "piensa". Todo el trabajo duro se hizo cuando el desarrollador pulsó "build". Durante la navegación, el cliente (navegador) solo descarga pequeños archivos JSON con la información de cada sección. |
 
 ### Airbnb :
 
 | Criterio | Descripción |
 |:---|:---|
-| Tipología||
-| URL ||
-| Evidencias técnicas||
-| Comportamiento de navegación ||
-| Tiempo de carga ||
-| Interacción con el servidor ||
+| Tipología| 	Dinàmica / SPA (Single Page Application). Una de las implementaciones de React más avanzadas, priorizando la experiencia fluida de "app nativa" sobre la navegación tradicional. |
+| URL | https://www.airbnb.es/ |
+| Evidencias técnicas| <ul><li>React & TypeScript: Uso masivo de componentes reutilizables.</li> <li>Client-side Rendering (CSR): Navegación sin recargar la página tras la carga inicial.</li> <li>PWA: Service Workers para carga rápida y funcionamiento en conexiones débiles.</li> <li>Skeleton Screens: Visualización de componentes mientras cargan los datos.</li></ul> |
+| Comportamiento de navegación | Navegació Instantània i Líquida. Actualización en milisegundos de filtros y mapas sin parpadeos de página. Descarga progresiva de imágenes a medida que el usuario hace scroll. |
+| Tiempo de carga | 267 requests 4.1 MB transferred 12.3 MB resources Finish: 25.15 s DOMContentLoaded: 2.08 s Load: 11.62 s|
+| Interacción con el servidor | APIs GraphQL / REST. Intercambio constante de datos (JSON) con uso de CDN para una rápida respuesta global. |
+
+__MIRAR: Airbnb utiliza una arquitectura SPA (Single Page Application) avanzada basada en React, TypeScript y Next.js para ofrecer una experiencia de usuario fluida, caracterizada por la carga dinámica de componentes y la gestión eficiente de datos. La plataforma optimiza el rendimiento mediante lazy loading de imágenes y el uso de service workers (PWA) para garantizar interactividad instantánea sin recargas de página__
 
 ### Twitter :
 
 | Criterio | Descripción |
 |:---|:---|
 | Tipología| SPA/PWA |
-| URL ||
-| Evidencias técnicas||
-| Comportamiento de navegación ||
-| Tiempo de carga ||
-| Interacción con el servidor ||
+| URL | https://x.com/?lang=es |
+| Evidencias técnicas|  <ul><li>Es una aplicación de una sola página cargada con JavaScript. Cumple todos los requisitos de una PWA (Progressive Web App): es instalable, tiene notificaciones push y funciona casi como una app nativa.</li> <li>React.js: Toda la interfaz se basa en componentes React (puedes verlo en el código con clases que empiezan por css-).</li> <li>Service Workers activos: Si abres DevTools > Application, verás que hay procesos en segundo plano para manejar caché y notificaciones.</li> <li>Infinite Scroll: Implementación técnica donde el DOM se recicla para no saturar la memoria mientras bajas por el feed.</li></ul> |
+| Comportamiento de navegación | Asíncrona Total. Al moverte entre "Inicio", "Explorar" o tu "Perfil", la página nunca se recarga. El navegador solo pide los datos (tweets) al servidor y React redibuja la pantalla. La sensación es de fluidez absoluta. Carga por fases (App Shell). Primero carga el "esqueleto" y luego van apareciendo los tweets. Usa Streaming SSR para que el contenido llegue lo antes posible al usuario.|
+| Tiempo de carga | 116 requests 4.9 MB transferred 17.7 MB resources Finish: 27.21 s DOMContentLoaded: 2.45 s Load: 2.77 s |
+| Interacción con el servidor | WebSocket / Real-time APIs. A diferencia de un blog, X necesita saber si tienes un nuevo "like" o tweet al segundo. Usa conexiones persistentes para recibir datos en tiempo real sin que tú tengas que refrescar nada. |
+
+__MIRAR:     Como te estás formando en Frontend, este es el mejor ejemplo para entender la diferencia con Amazon:
+Instalable: Si entras desde el móvil o Chrome, te aparecerá un icono en la barra de direcciones para "Instalar X". Una vez hecho, se abre en una ventana sin barras de navegador.
+Offline (parcial): Si pierdes la conexión, puedes seguir viendo los tweets que ya se habían cargado porque el Service Worker los guardó en el almacenamiento local de tu navegador.
+App Shell: El diseño de la interfaz se queda guardado en tu dispositivo; solo se descargan los datos nuevos (los tweets).__
+
 
 ### Página de documentación de MDN :
 
 | Criterio | Descripción |
 |:---|:---|
 | Tipología||
-| URL ||
+| URL | https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Overview |
 | Evidencias técnicas||
 | Comportamiento de navegación ||
 | Tiempo de carga ||
