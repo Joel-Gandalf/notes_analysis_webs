@@ -512,12 +512,12 @@ Webgrafía:
 
 | Criterio | Descripción |
 |:---|:---|
-| Tipología||
-| URL ||
-| Evidencias técnicas||
-| Comportamiento de navegación ||
-| Tiempo de carga ||
-| Interacción con el servidor ||
+| Tipología| 	Dinàmica/híbrida (Multi-Page Application - MPA) con fragmentos de comportamiento SPA y PWA|
+| URL | https://www.amazon.es/ |
+| Evidencias técnicas | <ul><li>Manifiesto de Aplicación (manifest.json): Aunque Amazon tiene archivos de configuración, no siempre expone el banner de "Instalar en pantalla de inicio" que caracteriza a las PWA. Su estrategia de negocio es empujarte a la App Nativa.</li> <li>Service Workers: Amazon los usa masivamente para el almacenamiento en caché de recursos críticos y para que la página cargue rápido, pero no ofrece una experiencia offline completa (no puedes comprar sin internet).</li> <li> SSR (Server Side Rendering): El HTML inicial llega renderizado desde el servidor para optimizar SEO y LCP.</li> <li>Arquitectura de Micro-frontends: Diferentes secciones (carrito, buscador) son servicios independientes integrados en la interfaz.</li> <li>Imágenes de próxima generación: Uso de formatos .webp y lazy-loading nativo.</li></ul> |
+| Comportamiento de navegación | 	Navegación hibrida. El flujo principal es síncrono (recarga de página), pero las interacciones de filtrado, paginación de reseñas y el "Añadir a la cesta" son asíncronas (AJAX/Fetch), manteniendo el estado sin refrescar la ventana.|
+| Tiempo de carga |276 requests 13.9 MB transferred 19.6 MB resources Finish: 1.2 min DOMContentLoaded: 1.72 s Load: 3.10 s|
+| Interacción con el servidor | APIs y CDNs |
 
 ### Blog personal de WordPress :
 
@@ -556,7 +556,7 @@ Webgrafía:
 
 | Criterio | Descripción |
 |:---|:---|
-| Tipología| SPA |
+| Tipología| SPA/PWA |
 | URL ||
 | Evidencias técnicas||
 | Comportamiento de navegación ||
