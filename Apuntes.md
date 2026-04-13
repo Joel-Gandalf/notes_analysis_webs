@@ -236,7 +236,7 @@ __Pasos:__
 
 __Peticiones__:
 
-  <img src="http-request.svg" alt="peticiones HTTP" style="width: 50%; height: auto; display:block; margin: 15px auto;">
+  <img src="resources/http-request.svg" alt="peticiones HTTP" style="width: 50%; height: auto; display:block; margin: 15px auto;">
 
 + Un ``método HTTP``, normalmente un verbo, como: GET, POST o un nombre como: OPTIONS o HEAD, que defina la operación que el cliente quiera realizar. El cliente suele hacer una petición de recursos, usando GET, o presentar un valor de un formulario HTML, usando POST. También se pueden hacer otros tipos de peticiones.
 + La ``versión`` del protocolo HTTP.
@@ -246,7 +246,7 @@ __Peticiones__:
 
 __Respuestas:__
 
-<img src="http-response.svg" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
+<img src="resources/http-response.svg" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
 
 + La ``versión`` del protocolo HTTP que están usando.
 + Un ``código de estado``, indicando si la petición ha sido exitosa, o no, y debido a que.
