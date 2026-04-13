@@ -552,7 +552,7 @@ Webgrafía:
 | Tiempo de carga | 267 requests 4.1 MB transferred 12.3 MB resources Finish: 25.15 s DOMContentLoaded: 2.08 s Load: 11.62 s|
 | Interacción con el servidor | APIs GraphQL / REST. Intercambio constante de datos (JSON) con uso de CDN para una rápida respuesta global. |
 
-__MIRAR: Airbnb utiliza una arquitectura SPA (Single Page Application) avanzada basada en React, TypeScript y Next.js para ofrecer una experiencia de usuario fluida, caracterizada por la carga dinámica de componentes y la gestión eficiente de datos. La plataforma optimiza el rendimiento mediante lazy loading de imágenes y el uso de service workers (PWA) para garantizar interactividad instantánea sin recargas de página__
+Airbnb utiliza una arquitectura SPA (Single Page Application) avanzada basada en React, TypeScript y Next.js para ofrecer una experiencia de usuario fluida, caracterizada por la carga dinámica de componentes y la gestión eficiente de datos. La plataforma optimiza el rendimiento mediante lazy loading de imágenes y el uso de service workers (PWA) para garantizar interactividad instantánea sin recargas de página.
 
 ### Twitter :
 
@@ -565,22 +565,23 @@ __MIRAR: Airbnb utiliza una arquitectura SPA (Single Page Application) avanzada 
 | Tiempo de carga | 116 requests 4.9 MB transferred 17.7 MB resources Finish: 27.21 s DOMContentLoaded: 2.45 s Load: 2.77 s |
 | Interacción con el servidor | WebSocket / Real-time APIs. A diferencia de un blog, X necesita saber si tienes un nuevo "like" o tweet al segundo. Usa conexiones persistentes para recibir datos en tiempo real sin que tú tengas que refrescar nada. |
 
-__MIRAR:     Como te estás formando en Frontend, este es el mejor ejemplo para entender la diferencia con Amazon:
+Diferencia con Amazon:
+
 Instalable: Si entras desde el móvil o Chrome, te aparecerá un icono en la barra de direcciones para "Instalar X". Una vez hecho, se abre en una ventana sin barras de navegador.
-Offline (parcial): Si pierdes la conexión, puedes seguir viendo los tweets que ya se habían cargado porque el Service Worker los guardó en el almacenamiento local de tu navegador.
-App Shell: El diseño de la interfaz se queda guardado en tu dispositivo; solo se descargan los datos nuevos (los tweets).__
+Offline (parcial): Sin conexión, puedes seguir viendo los tweets que ya se habían cargado porque el Service Worker los guardó en el almacenamiento local de tu navegador.
+App Shell: El diseño de la interfaz se queda guardado en tu dispositivo; solo se descargan los datos nuevos (los tweets).
 
 
 ### Página de documentación de MDN :
 
 | Criterio | Descripción |
 |:---|:---|
-| Tipología||
+| Tipología|	Dinàmica / Jamstack (Yari)|
 | URL | https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Overview |
-| Evidencias técnicas||
-| Comportamiento de navegación ||
-| Tiempo de carga ||
-| Interacción con el servidor ||
+| Evidencias técnicas| <ul><li>Aunque parece una web tradicional, utiliza una arquitectura moderna llamada Yari. Es un sitio generado estáticamente (SSG) pero con una capa dinámica de React para la búsqueda y la interactividad.</li> <li>React: Se utiliza para gestionar la navegación entre artículos y el buscador.</li> <li> GitHub-backed Content: El contenido no está en una base de datos SQL típica, sino en archivos Markdown en GitHub.</li> <li>Hydration: El HTML llega listo del servidor (para SEO) y luego JavaScript "toma el control" para permitir búsquedas rápidas.</li></ul> |
+| Comportamiento de navegación | Híbrid (SPA-like). Con clic en enlaces laterales la página no se recarga totalmente de forma brusca; usa un sistema de rutas (Client-side routing) para que la transición sea suave, pero manteniendo URLs únicas para cada documento. |
+| Tiempo de carga | 99 requests 894 kB transferred 1.8 MB resources Finish: 2.37 s DOMContentLoaded: 407 ms Load: 1.03 s |
+| Interacción con el servidor | APIs de Busqueda y Contribución. El servidor apenas trabaja para servir el contenido (son archivos estáticos), pero se comunica con APIs para el autocompletado del buscador y para mostrar el estado de las traducciones. |
 
 
 
