@@ -506,6 +506,122 @@ Webgrafía:
 [arsys.es](https://www.arsys.es/blog/spa-unica-pagina)
 
 
+## <font color="orange"> Accessibilidad(WCAG) y SEO </font>
+
+La accesibilidad (a11y) consiste en programar con estándares de calidad que permiten que cualquier persona (con ceguera, movilidad reducida o daltónica) use tu web.
+
+### Puntos esenciales:
+
+__Semántica HTML:__ Usar las etiquetas para lo que son. Un `<button>` es para acciones y un `<a>` para navegar. No uses un `<div>` con un onClick si puedes usar un botón, ya que los lectores de pantalla no sabrán que se puede pulsar.
+
+__Contraste de color:__ El texto debe resaltar claramente sobre el fondo. La norma (WCAG) pide una relación mínima de 4.5:1. Puedes usar herramientas como Adobe Color para comprobarlo.
+
+__Atributos alt en imágenes:__ Todas las imágenes deben tener una descripción breve. Si la imagen es puramente decorativa, deja el atributo vacío (alt=""), pero no lo omitas, para que el lector de pantalla sepa que debe saltársela.
+
+__Navegación por teclado:__ Un usuario debería poder navegar por toda tu web solo usando la tecla Tab. Asegúrate de que el "foco" (el borde que rodea al elemento seleccionado) sea siempre visible y no lo quites con CSS (outline: none).
+
+__Jerarquía de encabezados:__ Usa los `<h1>` a `<h6>` en orden lógico. No elijas un `<h3>` solo porque el tamaño de la letra te gusta más; úsalo porque es un subapartado de un `<h2>`. Los lectores de pantalla lo usan como un índice.
+
+__Formularios etiquetados:__ Cada `<input>` debe tener su etiqueta <label> asociada mediante el atributo for. Esto permite que al clicar en el texto, el cursor salte al cuadro de escritura.
+
+__Responsive y Zoom:__ La web no debe romperse si el usuario aumenta el tamaño de la fuente hasta un 200%. El diseño debe ser fluido.
+
+## <font color="orange"> SEO </font>
+
+__SEO (Search Engine Optimization):__ Preparar la estructura técnica para que los robots de Google (crawlers) entiendan y clasifiquen tu web correctamente.
+
+### Puntos esenciales:
+
+__Etiquetas de Título y Meta-descripción:__ Son lo primero que ve el usuario en Google. El `<title>` debe ser único por página y la `<meta name="description">` debe resumir el contenido para atraer el clic.
+
+__Encabezados Semánticos (H1-H6):__ Solo debe haber un solo `<h1>` por página (el título principal). El resto (`<h2>`, `<h3>`) deben seguir un orden jerárquico, como el índice de un libro, para organizar los temas.
+
+__Atributos ALT en Imágenes:__ Los buscadores no "ven" las imágenes. El texto alt les explica qué aparece en la foto, lo que te permite posicionar también en Google Imágenes.
+
+__URLs Amigables:__ Evitar URLs con números raros (ej: page?id=123). Es mucho mejor usar "slugs" descriptivos como ://misitio.com.
+
+__Velocidad de Carga (Core Web Vitals):__ Google penaliza las webs lentas. Como dev, debes optimizar el tamaño de las imágenes, minificar el código CSS/JS y usar técnicas como el Lazy Loading.
+
+__Diseño Responsive (Mobile-First):__ Google indexa primero la versión móvil de tu web. Si no se ve bien en un smartphone o los botones están muy juntos, tu posicionamiento caerá.
+
+__Enlazado Interno:__ Usa enlaces dentro de tu texto para conectar unas páginas con otras. Esto ayuda a Google a descubrir todo tu sitio y a entender qué páginas son las más importantes.
+
+__Sitemap y Robots.txt:__ El archivo sitemap.xml es un mapa de todas tus páginas para el buscador, y el robots.txt le dice qué partes de la web NO debe rastrear (como el panel de administración).
+
+
+## <font color="orange"> Conceptos </font>
+
+### API
+
+API (Application Programming Interface): Imagina que es el camarero de un restaurante. Tú (el cliente/frontend) le pides un plato (datos) de la carta; el camarero lleva el pedido a la cocina (el servidor) y te trae la comida de vuelta. Es el "puente" que permite que tu web hable con otros servicios para obtener información (como el tiempo, tweets o productos).
+
+Una API es un conjunto de reglas, protocolos y definiciones que permite que dos aplicaciones de software se comuniquen entre sí. Actúa como una "interfaz" (un punto de conexión) donde el servidor expone ciertos puntos de acceso (Endpoints) y el cliente sabe exactamente qué datos enviar y qué formato de respuesta esperar.
+
+__Flujo:__
+
++ Request (Petición): El Frontend realiza una llamada HTTP (usando fetch o axios) a una URL específica. Esta petición incluye un Método (GET para leer, POST para crear, PUT para actualizar, DELETE para borrar) y, a veces, cabeceras (headers) de autenticación.
++ Procesamiento: El servidor recibe la petición, consulta la base de datos o ejecuta una lógica de negocio.
++ Response (Respuesta): El servidor devuelve un código de estado (como el famoso 200 OK o el 404 Not Found) y, generalmente, un cuerpo de datos en formato JSON.
+
+__Abstracción y Encapsulamiento:__
+La API permite la abstracción. Como desarrollador frontend, no necesitas saber en qué lenguaje está escrito el backend (puede ser Python, Java o Go) ni cómo está organizada su base de datos. Solo necesitas conocer la documentación de la API para consumir los datos. Esto permite que el equipo de Backend cambie toda su estructura interna sin que tu código de Frontend se rompa, siempre que la interfaz de la API se mantenga igual.
+
+### DOM
+
+DOM (Document Object Model): Es la estructura de árbol que crea el navegador cuando carga tu código HTML. Al convertir las etiquetas (`<div>`, `<h1>`, etc.) en objetos de JavaScript, el DOM te permite "engañar" a la página: puedes usar código para cambiar un texto, borrar una imagen o mover un botón sin tener que editar el archivo HTML original.
+
+### CMS
+
+CMS (Content Management System): Es una herramienta de gestión para personas que no saben programar. En lugar de escribir código HTML para cada noticia de un blog, usan un panel visual (como WordPress) para escribir y subir fotos. El CMS guarda todo eso en una base de datos y lo muestra automáticamente en la web siguiendo una plantilla.
+
+## <font color="orange"> Componentes principales que forman la arquitectura de un navegador</font>
+
+
+1. __La Interfaz de Usuario (User Interface):__ 
+Es todo lo que ves "fuera" de la ventana donde se carga la web. Incluye la barra de direcciones, el botón de atrás/adelante, el menú de marcadores y las pestañas. Es la única parte que no renderiza la web directamente. 
+
+2. __El Motor del Navegador (Browser Engine):__
+Es el "director de orquesta". Se encarga de gestionar las interacciones entre la Interfaz de Usuario y el Motor de Renderizado. Si le das a "Refrescar", él le dice al motor de renderizado que empiece de nuevo. 
+
+3. __El Motor de Renderizado (Rendering Engine):__
+Es la pieza más importante para un desarrollador Frontend. Su trabajo es "dibujar" la web.
+Lee el HTML y el CSS.
+Construye el DOM (árbol de elementos).
+Calcula el diseño (Layout) y pinta los píxeles en la pantalla.
+Ejemplos: Blink (Chrome, Edge), Gecko (Firefox) y WebKit (Safari). 
+
+4. __El Motor de JavaScript (JS Engine):__
+Como el HTML es estático, necesitamos un intérprete que entienda y ejecute tu código JavaScript. 
+Transforma tu código JS en algo que el procesador del ordenador pueda entender rápidamente (compilación Just-In-Time).
+Ejemplos: V8 (Chrome/Edge/Node.js), SpiderMonkey (Firefox).
+
+5. __Backend de Red (Networking):__
+Es el componente que se encarga de las comunicaciones por internet. Gestiona las peticiones HTTP/HTTPS, las DNS y la seguridad (certificados SSL). Es quien "va a buscar" los archivos al servidor.
+
+6. __Almacenamiento de Datos (Data Storage):__
+El navegador necesita guardar cosas en tu disco duro para no pedirlas siempre al servidor. Aquí se gestionan: 
+    + Cookies.
+    + LocalStorage y SessionStorage.
+    + IndexedDB (bases de datos locales).
+    + Caché de archivos. 
+
+7. Capa de Interfaz con el Sistema Operativo (UI Backend)
+Es una capa interna que usa los métodos del sistema operativo (Windows, macOS, Linux) para dibujar ventanas básicas, menús desplegables o cuadros de selección de archivos. 
+
+__Al poner una URL y dar a Enter:__
+
++ La Red descarga el archivo.
++ El Motor de Renderizado lee el HTML y crea el DOM.
++ El Motor de JS ejecuta los scripts.
++ El Motor de Navegador coordina que todo aparezca en la Interfaz.
+
+## <font color="orange"> Seguridad básica </font>
+
+### HTTPS, Cross-Site Scripting (XSS) 
+### Cross-Origin Resource Sharing (CORS)
+
+
+
 ## <font color="orange"><center>Análisis de aplicaciones</font>
 
 ### Amazon :
