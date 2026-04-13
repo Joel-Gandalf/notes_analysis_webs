@@ -1,7 +1,7 @@
 # <span style="color:orange"><center> Spring 0  Apuntes y análisis de webs</span>
 ## <font color="orange">Funcionamiento de una web</font> <br>
 
-<img src="image.png" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
+<img src="resources/image.png" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
 
 ### Clientes <br>
 Dispositivos de los usuarios conectados a internet con el software necesario para ello(navegador).<br>
@@ -188,7 +188,7 @@ Se usa para:
 + Enviar datos o contenido a los servidores, como en el caso de los formularios de datos.
 + Transmitir partes de documentos, y actualizar páginas Web en el acto.
 
-![alt text](image-1.png)
+![HTTP communication](resources/image-1.png)
 
 ### Arquitectura de los sistemas basados en HTTP
 
