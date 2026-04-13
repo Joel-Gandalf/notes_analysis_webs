@@ -506,7 +506,7 @@ Webgrafía:
 [arsys.es](https://www.arsys.es/blog/spa-unica-pagina)
 
 
-## <font color="orange"> Accessibilidad(WCAG) y SEO </font>
+## <font color="orange"> Accessibilidad(WCAG)</font>
 
 La accesibilidad (a11y) consiste en programar con estándares de calidad que permiten que cualquier persona (con ceguera, movilidad reducida o daltónica) use tu web.
 
@@ -617,9 +617,35 @@ __Al poner una URL y dar a Enter:__
 
 ## <font color="orange"> Seguridad básica </font>
 
-### HTTPS, Cross-Site Scripting (XSS) 
-### Cross-Origin Resource Sharing (CORS)
 
+__HTTPS (Seguridad en el transporte):__
+
+Versión segura del protocolo HTTP. La "S" final significa Secure (Capa de conexión segura o TLS/SSL).
+
+Cifra la información que viaja entre el navegador y el servidor. Sin HTTPS, cualquier persona conectada a la misma red WiFi podría "leer" las contraseñas o datos de tarjeta que el usuario envía.
+
+Rol del Dev: Hoy en día es obligatorio. Google penaliza el SEO de las webs que no lo usan y los navegadores muestran un aviso de "Sitio no seguro". 
+
+__Cross-Site Scripting (XSS):__
+
+Ataque donde un "malo" logra inyectar código JavaScript malicioso en tu página para que se ejecute en el navegador de otros usuarios.
+
+El atacante podría robar las cookies de sesión o redirigir al usuario a una web falsa.
+Cómo evitarlo: Nunca confíes en lo que el usuario escribe. Si tienes un buscador o un formulario de comentarios, debes sanitizar el texto (limpiar etiquetas `<script>`) antes de pintarlo en el DOM. Frameworks como React ya hacen gran parte de este trabajo por ti de forma automática.
+
+__Cross-Origin Resource Sharing (CORS):__
+
+Es un mecanismo de seguridad del navegador que restringe las peticiones HTTP que se hacen desde un dominio a otro distinto (por seguridad, el navegador bloquea que web-a.com pida datos a api-b.com por defecto).
+
+No es un error de código, es una política de seguridad.
+
+Si el Frontend necesita datos de una API externa y recibe un "CORS error", el equipo de Backend debe configurar el servidor para que incluya una cabecera (Access-Control-Allow-Origin) que diga: "Doy permiso a esta web específica para que me pida datos".
+
+__Resumen:__
+
+HTTPS: Protege el "camino" del dato.
+XSS: Protege que no ejecuten código raro en tu web.
+CORS: Es el "portero de discoteca" que decide qué webs pueden entrar a pedir datos a una API.
 
 
 ## <font color="orange"><center>Análisis de aplicaciones</font>
