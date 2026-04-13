@@ -1,4 +1,4 @@
-# <span style="color:orange"><center> Spring 0 </span>
+# <span style="color:orange"><center> Spring 0  Apuntes y análisis de webs</span>
 ## <font color="orange">Funcionamiento de una web</font> <br>
 
 <img src="image.png" alt="respuestas HTTP" style="width: 60%; height: auto; display:block; margin: 15px auto;">
@@ -643,9 +643,56 @@ Si el Frontend necesita datos de una API externa y recibe un "CORS error", el eq
 
 __Resumen:__
 
-HTTPS: Protege el "camino" del dato.
-XSS: Protege que no ejecuten código raro en tu web.
-CORS: Es el "portero de discoteca" que decide qué webs pueden entrar a pedir datos a una API.
++ HTTPS: Protege el "camino" del dato.
++ XSS: Protege que no ejecuten código raro en tu web.
++ CORS: Es el "portero de discoteca" que decide qué webs pueden entrar a pedir datos a una API.
+
+Un navegador moderno actúa como una pequeña base de datos local para que tus aplicaciones web sean rápidas y puedan guardar información sin depender siempre del servidor.
+
+## <font color="orange">Tipos de almacenamiento local que soporta un navegador moderno</font>
+
+### Tipos principales :
+1. __LocalStorage:__
+Es el más utilizado para guardar preferencias del usuario (como el "modo oscuro" o el idioma). 
+
+      Capacidad: Aproximadamente 5MB - 10MB.
+
+      Persistencia: Los datos no caducan. Aunque cierres el navegador o apagues el PC, la información seguirá ahí hasta que la borres por código o el usuario limpie su historial.
+      
+      Formato: Solo guarda strings (texto). Para guardar objetos, debes usar JSON.stringify(). 
+
+2. __SessionStorage:__
+Es idéntico a LocalStorage, pero con una diferencia clave en el tiempo de vida. 
+
+    Capacidad: Similar a LocalStorage (aprox. 5MB).
+
+    Persistencia: Los datos se borran al cerrar la pestaña. Es ideal para información sensible o temporal de una sesión específica (como un formulario de varios pasos). 
+
+3. __IndexedDB:__
+Es una base de datos NoSQL completa dentro del navegador. Es mucho más potente y compleja. 
+
+    Capacidad: Casi ilimitada (depende del espacio libre en el disco del usuario).
+
+    Uso: Permite guardar grandes cantidades de datos estructurados, archivos o imágenes (blobs). Es fundamental para aplicaciones que funcionan offline (PWA).
+
+    Complejidad: Funciona de forma asíncrona, por lo que requiere un nivel de programación más avanzado que LocalStorage. 
+
+4. __Cookies:__
+Son el método más antiguo, pero siguen siendo vitales para la comunicación con el servidor.
+
+    Capacidad: Muy pequeña (4KB por cookie).
+
+    Uso principal: Gestión de sesiones de usuario y seguimiento (tracking).
+
+    Diferencia clave: A diferencia de las anteriores, las cookies se envían automáticamente al servidor en cada petición HTTP. Por eso, no deben usarse para guardar datos pesados, ya que ralentizarían la web. 
+
+__Resumen:__
+| Tipo | ¿Cuándo usarlo?	| ¿Cuándo desaparece? |
+|:---|:---|:---|
+|LocalStorage |	Preferencias del sitio (tema, login persistente).	|Nunca (hasta borrado manual).|
+| SessionStorage |	Datos de una sola sesión o pestaña. |	Al cerrar la pestaña. |
+| IndexedDB |	Aplicaciones offline, juegos o muchos datos. |	Nunca (hasta borrado manual). |
+| Cookies	| Tokens de sesión y autenticación servidor.	| En su fecha de expiración.
 
 
 ## <font color="orange"><center>Análisis de aplicaciones</font>
