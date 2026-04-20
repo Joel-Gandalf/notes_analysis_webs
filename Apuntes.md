@@ -330,7 +330,7 @@ Es posible hacer algo similar con JavaScript puro. Las ``plantillas literales`` 
 
 Hay que tener en cuenta que un uso excesivo de estos puede aumentar el tamaño y el coste computacional del proyecto final, afectando al rendimiento de la página web o app.
 
-Si las prioridades de los desarrolladores no son el rendimiento y la accesibilidad, los frameworks amplificarán la fragilidad, la sobrecarga y la inaccesibilidad.
+Si las prioridades de los desarrolladores no son el ``rendimiento`` y la ``accesibilidad``, los frameworks ``amplificarán la fragilidad, la sobrecarga y la inaccesibilidad``.
 
 Todos los frameworks mencionados admiten tanto la renderización del lado del servidor como la del lado del cliente.
 
@@ -338,7 +338,21 @@ Todos los frameworks mencionados admiten tanto la renderización del lado del se
 
 + CMS: herramientas que permiten crear contenido web sin necesidad de escribir código.
 + Renderizado del lado del servidor.
-+ Generadores de sitios estáticos: Utilización de plantillas
++ Generadores de sitios estáticos: Utilización de plantillas.
+
+__Librería (Biblioteca):__  
++ Propósito: Resuelve un problema concreto o realiza una función específica (ej. manipular fechas, hacer peticiones HTTP).
++ Control: Tú decides cuándo y cómo utilizarla.
++ Ejemplos: jQuery, React (a menudo considerada librería de UI), Axios, Lodash.
+
+__Framework (Marco de trabajo):__  
++ Propósito: Proporciona un esqueleto o estructura completa para construir aplicaciones, incluyendo arquitectura, reglas y buenas prácticas.
++ Control: Define la estructura y el flujo de la aplicación.
++ Ejemplos: Angular, Vue, Django, Laravel, Next.js.
+
+__Cuándo usar cuál:__  
+Usa una librería si necesitas flexibilidad y solo resolver una tarea sin cambiar la estructura de tu proyecto.
+Usa un framework si necesitas un entorno de desarrollo estructurado, estable y con muchas funcionalidades integradas para aplicaciones grandes.
 
 Webgrafía: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/Introduction)
 
